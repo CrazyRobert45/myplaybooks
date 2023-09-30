@@ -1,0 +1,18 @@
+--- #conditional playbook
+- name: conditional book
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Installing Httpd in RedHat
+      action: yum pkg=httpd state=installed
+      when: ansible_os_family == "RedHat"
+
+    - name: Installing Httpd in Debian
+      action: apt pkg==apache2 state=present
+      when: ansible_os_family == "Debian"
+    
+    - name: copying file
+      copy:
+        src: /home/ec2-user/index.html
+        dest: /var/www/html

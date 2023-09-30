@@ -1,0 +1,8 @@
+--- #Creating file
+- hosts: all
+  become: yes
+
+  tasks:
+    - file:
+        path: /tmp/abcfile
+        state: touch

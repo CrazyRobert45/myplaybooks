@@ -1,0 +1,16 @@
+--- #ignoring files
+- name: ignoring file
+  hosts: all
+  become: true
+
+
+  tasks:
+   - name: installing softwares
+     yum:
+       name: httpd
+       action: pkg=htpd state=installed
+     ignore_errors: yes
+
+
+   - name: creating user
+     user: name=Rana state=present

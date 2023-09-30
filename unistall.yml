@@ -1,0 +1,14 @@
+--- #Uninstalling Tree and httpd
+- hosts: all
+  become: yes
+
+
+  tasks:
+    - name: install tree
+      action: yum pkg=tree state=absent
+
+    - name: install HTTPD
+      action: yum pkg=httpd state=absent
+
+    - name: start httpd service
+      action: service name=httpd state=stopped

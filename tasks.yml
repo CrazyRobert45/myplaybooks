@@ -1,0 +1,14 @@
+--- #installing Tree and httpd
+- hosts: all
+  become: yes
+
+
+  tasks:
+    - name: install tree
+      action: yum pkg=tree state=present
+
+    - name: install HTTPD
+      action: yum pkg=httpd state=present
+
+    - name: start httpd service
+      action: service name=httpd state=started

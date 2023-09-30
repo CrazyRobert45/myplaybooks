@@ -1,0 +1,13 @@
+--- #handlers
+- name: handlers
+  hosts: webservers[0]
+  become: yes
+
+  tasks:
+    - name: Installing httpd
+      action: yum pkg=httpd state=installed
+      notify: service httpd
+
+  handlers:
+    - name: service httpd
+      action: service name=httpd state=started    

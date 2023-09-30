@@ -1,0 +1,12 @@
+--- #second vars
+- name: creating user
+  hosts: all
+  become: true
+
+  vars:
+    user: prathap
+
+  tasks:
+    - name: creating user
+      user: 
+        name: '{{user}}'

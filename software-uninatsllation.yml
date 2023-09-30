@@ -1,0 +1,10 @@
+--- #unInsall s/w
+- hosts: all
+  become: yes
+
+  tasks: 
+   - name: uninstalling softwares
+     yum:
+      name: ['git','java','httpd','tree','docker','mysql']
+      state: absent
+

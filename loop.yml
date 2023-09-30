@@ -1,0 +1,13 @@
+--- #loops filr
+- name: loops file
+  hosts: all
+  become: yes
+
+
+  tasks:
+   - name: installing loop
+     action: yum pkg='{{item}}' state=present
+     with_items: 
+          - httpd
+          - tree
+          - docker  

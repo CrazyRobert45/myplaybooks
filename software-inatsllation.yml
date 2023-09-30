@@ -1,0 +1,10 @@
+--- #Insall s/w
+- hosts: all
+  become: yes
+
+  tasks: 
+   - name: installing softwares
+     yum:
+      name: ['git','java','httpd','tree','docker','mysql']
+      state: installed
+

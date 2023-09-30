@@ -1,0 +1,11 @@
+--- #Copying a file
+- name: copyfile
+  hosts: all
+  become: yes
+
+  tasks: 
+   - name: file copy
+     copy:
+        src: /home/ec2-user/index.html
+        dest: /home/ec2-user/index.html
+

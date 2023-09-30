@@ -1,0 +1,12 @@
+--- #intoduction of vars 
+- name: variables
+  hosts: all
+  become: yes
+
+  vars: 
+   rana: httpd
+
+  tasks:
+   - name: installing httpd using vars
+     yum:
+      name: '{{rana}}'

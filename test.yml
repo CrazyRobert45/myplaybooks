@@ -1,0 +1,12 @@
+--- #First playbook
+- name: first book
+  hosts: all
+  become: true
+  connection: ssh
+
+  tasks:
+    - name: installing tree
+      yum:
+        name: tree
+        state: present
+
